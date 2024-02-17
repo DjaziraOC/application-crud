@@ -14,9 +14,13 @@ class ClientsController extends Controller
      */
     public function liste_clients() //index()
     {
-        return view('client.liste');
+        $clients = client::all(); 
+        return view('client.liste',compact('clients'));
+        // compact('clients'):Cette fonction crée un tableau associatif avec le nom de la variable 'clients'
+        // et ses valeurs correspondantes.
     }
 
+  
     /**
      * Show the form for creating a new resource.
      */
@@ -50,26 +54,28 @@ class ClientsController extends Controller
         return redirect('/addClients')->with('status', 'Le client a été ajouté avec succès');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    // public function show(string $id)
-    // {
-    //     //
-    // }
 
     // /**
     //  * Show the form for editing the specified resource.
     //  */
-    // public function edit(string $id)
+    // public function edit(string $id)  
+    // {
+        
+    // }
+
+
+    /**
+     * Update the specified resource in storage.
+     */
+    // public function update(Request $request, string $id)
     // {
     //     //
     // }
 
-    // /**
-    //  * Update the specified resource in storage.
-    //  */
-    // public function update(Request $request, string $id)
+     /**
+     * Display the specified resource.
+     */
+    // public function show(string $id)
     // {
     //     //
     // }
