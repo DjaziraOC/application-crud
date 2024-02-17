@@ -15,6 +15,9 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
+
+// Inclure le chargeur de classes de Composer
+
 require __DIR__.'/vendor/autoload.php';
 
 $app = require_once __DIR__.'/bootstrap/app.php';
