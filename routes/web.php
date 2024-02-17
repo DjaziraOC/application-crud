@@ -14,6 +14,10 @@ use App\Http\Controllers\ClientsController;
 */
 
 Route::get('/client',[ClientsController::class,'liste_clients']);
+Route::get('/addClients',[ClientsController::class,'addClients']);
+Route::post('/addClients/traitement', [ClientsController::class, 'addclient_traitement']);
+
+
 
 
 
