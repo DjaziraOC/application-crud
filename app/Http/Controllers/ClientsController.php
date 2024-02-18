@@ -9,18 +9,7 @@ use App\Models\client;
 
 class ClientsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function liste_clients() //index()
-    {
-        $clients = client::all(); 
-        return view('client.liste',compact('clients'));
-        // compact('clients'):Cette fonction crée un tableau associatif avec le nom de la variable 'clients'
-        // et ses valeurs correspondantes.
-    }
 
-  
     /**
      * Show the form for creating a new resource.
      */
@@ -43,6 +32,8 @@ class ClientsController extends Controller
 
         // Création d'une nouvelle instance de Client
         $client = new Client();
+
+        // Valider les données du formulaire
         $client->nom = $request->nom;
         $client->ville = $request->ville;
         $client->telephone = $request->telephone;
@@ -54,31 +45,35 @@ class ClientsController extends Controller
         return redirect('/addClients')->with('status', 'Le client a été ajouté avec succès');
     }
 
+    /**
+     * Display a listing of the resource.
+     */
+    public function liste_clients() //index()
+    {
+        $clients = client::all(); 
+        return view('client.liste',compact('clients'));
+        // compact('clients'):Cette fonction crée un tableau associatif avec le nom de la variable 'clients'
+        // et ses valeurs correspondantes.
+    }
 
     // /**
     //  * Show the form for editing the specified resource.
     //  */
-    // public function edit(string $id)  
-    // {
-        
-    // }
+    public function edit($id)  
+    { 
+        $client = client::findOrFail($id);
+        return view('client.updateClient', compact('client'));
+    }
 
-
+   
     /**
-     * Update the specified resource in storage.
-     */
-    // public function update(Request $request, string $id)
-    // {
-    //     //
-    // }
-
-     /**
      * Display the specified resource.
      */
-    // public function show(string $id)
-    // {
-    //     //
-    // }
+    public function show(string $id)
+    {
+       
+    }
+    
 
     // /**
     //  * Remove the specified resource from storage.
