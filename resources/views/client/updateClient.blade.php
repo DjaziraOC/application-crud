@@ -14,9 +14,6 @@
           <hr>
             <h1 class="mt-5"> Modifier un client</h1>
           <hr>
-            @if(session('status'))
-              <div class="alert alert-success">{{session('status')}} </div>
-            @endif
             <form class="row g-3" action="/updateClient/traitement" method="POST">
               @csrf
               @method('POST')
