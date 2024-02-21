@@ -9,18 +9,11 @@ use App\Models\client;
 
 class ClientsController extends Controller
 {
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function addClients()
     {
         return view('client.addClient');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function addclient_traitement(Request $request)
     {
         // Validation des données entrées par l'utilisateur
@@ -43,9 +36,6 @@ class ClientsController extends Controller
         return redirect('/addClients')->with('status', 'Le client a été ajouté avec succès');
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function liste_clients() //index()
     {
         $clients = client::all(); 
@@ -54,9 +44,6 @@ class ClientsController extends Controller
         // et ses valeurs correspondantes.
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)  
     { 
         // Rechercher le client par son ID et déclencher une erreur 404 si non trouvé
@@ -64,9 +51,6 @@ class ClientsController extends Controller
         return view('client.updateClient', compact('client'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function updateClient(Request $request)
     {
         // Valider les données du formulaire
@@ -91,14 +75,17 @@ class ClientsController extends Controller
         return redirect('/client')->with('status','Les données du client séléctionné ont été mises à jour avec succès');
     }
 
-    
+    public function deleteClient($id)
+    {
+        // Rechercher le client par son ID et déclencher une erreur 404 si non trouvé
+        $client = Client::findOrFail($id);
+        
+        // Supprimer le client
+        $client->delete();
 
+        // Redirection vers la page client avec un message de succès
+        return redirect('/client')->with('status','Les données du client séléctionné ont été supprimé à jour avec succès');
 
-     /**
-     * Display the specified resource.
-     */
-    // public function show(string $id)
-    // {
-       
-    // }
+    }
+
 }
