@@ -17,8 +17,10 @@
             @if(session('status'))
               <div class="alert alert-success">{{session('status')}} </div>
             @endif
-            <form class="row g-3" action="/" method="POST">
+            <form class="row g-3" action="/updateClient/traitement" method="POST">
               @csrf
+              @method('POST')
+              <input type="hidden" class="form-control"  name="id" value="{{$client->id}}">
               <div class="col-md-6">
                 <label for="nom" class="form-label">Nom</label>
                 <input type="text" class="form-control" id="nom" name="nom" value="{{ $client->nom}}">
