@@ -67,4 +67,8 @@ Route::get('/addArticle',[ArticlesController::class,'addFormArticle']);
 
 // La route 2:définit une méthode POST pour traiter la soumission du formulaire de l'ajout d'un article. 
 // Elle pointe vers la méthode createArticle du contrôleur ArticlesController.
-Route::post('/addArticle',[ArticlesController::class,'createArticle'])->name('addArticle');;
+Route::post('/addArticle',[ArticlesController::class,'createArticle'])->name('addArticle');
+
+// La route 1:définit une méthode GET pour afficher le formulaire de l'ajout d'un article.
+// Elle pointe vers la méthode addFormArticle du contrôleur ArticlesController.
+Route::get('/displayArticles',[ArticlesController::class,'displayArticles']);
