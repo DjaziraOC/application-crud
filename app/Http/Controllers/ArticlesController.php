@@ -8,20 +8,15 @@ use App\Models\article;
 class ArticlesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Show the form for creating a new resource.
      */
-    public function index()
-    {
-        //
-    }
-
     public function addFormArticle()
     {
         return view('article.addArticle');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Create a new resource.
      */
     public function createArticle(Request $request)
     {
@@ -35,7 +30,6 @@ class ArticlesController extends Controller
             'heat'=>'required|integer|min:0|max:10'
         ]);
        
-
         // Enregistrer l'image dans le répertoire 'public/images'
         if ($request->hasFile('image')) {
             $picturePath= $request->file('image')->store('public/images');
@@ -63,6 +57,22 @@ class ArticlesController extends Controller
         // Redirection vers la page d'ajout de clients avec un message de succès
         return redirect('/')->with('success', 'Article ajouté avec succès.');
     }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function displayArticles()
+    {  
+        $articles = article::all(); 
+        // compact('articles'):Cette fonction crée un tableau associatif avec le nom de la variable 'article'
+        // et ses valeurs correspondantes.
+        return view('article.showArticles',compact('articles'));
+    }
+   
+
+
+
+
 
     /**
      * Store a newly created resource in storage.
