@@ -21,8 +21,7 @@
 
 ### Créer un modèle (Model) pour le client & une migration pour ajouter la table de clients à le base de données.
 - php artisan make:model client -m
-- modifier le shéma client et le fichier 
-- client au niveau de dossier model 
+- modifier le schéma client et le fichier client au niveau de dossier model 
 - php artisan migrate 
 ### Créer un contrôleur (Controller) pour gérer les actions liées aux clients.
 - php artisan make:controller clientsController --resource
@@ -31,3 +30,9 @@
 ### Afficher la liste des  clients éxistant déjçà dans la base de donnée:
 - Récupérer les données dans le contrôleur 
 - Créer une vue pour afficher un nouveau client.
+
+## LES ROUTES 
+
+##  Gestion d'image 
+Stockage du chemin de l'image dans la base de données 
+
