@@ -20,20 +20,18 @@
               <input type="hidden" class="form-control"  name="id" value="{{$client->id}}">
               <div class="col-md-6">
                 <label for="nom" class="form-label">Nom</label>
-                <input type="text" class="form-control" id="nom" name="nom" value="{{ $client->nom}}">
+                <input type="text" class="form-control" id="nom" name="nom" value="{{$client->nom}}">
               </div>
               <div class="col-md-6">
                 <label for="ville" class="form-label">Ville</label>
-                <input type="text" class="form-control" id="ville" name="ville" value="{{ $client->ville}}">
+                <input type="text" class="form-control" id="ville" name="ville" value="{{$client->ville}}">
               </div>
               <div class="col-md-6">
                 <label for="telephone" class="form-label">Téléphone</label>
-                <input type="text" class="form-control" id="telephone" name="telephone" value="{{ $client->telephone}}">
+                <input type="text" class="form-control" id="telephone" name="telephone" value="{{$client->telephone}}">
               </div>
               <div class="col-12"> 
                 <button type="submit" class="btn btn-primary">Modifier</button>
-              </div>
-              <div class="col-12"> 
                 <a href="/client" type="submit" class="btn btn-danger">Annuler</a>
               </div>
             </form>
