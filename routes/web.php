@@ -69,6 +69,22 @@ Route::get('/addArticle',[ArticlesController::class,'addFormArticle']);
 // Elle pointe vers la méthode createArticle du contrôleur ArticlesController.
 Route::post('/addArticle',[ArticlesController::class,'createArticle'])->name('addArticle');
 
-// La route 1:définit une méthode GET pour afficher le formulaire de l'ajout d'un article.
+// La route 3:définit une méthode GET pour afficher le formulaire de l'ajout d'un article.
 // Elle pointe vers la méthode addFormArticle du contrôleur ArticlesController.
 Route::get('/displayArticles',[ArticlesController::class,'displayArticles']);
+
+// La route 4:définit une méthode GET pour afficher le formulaire de modification d'article.
+// Elle pointe vers la méthode showFormUpdateArticle du contrôleur ArticlesController.
+Route::get('/updateArticle/{id}',[ArticlesController::class,'showFormUpdateArticle']);
+
+// La route 5:définit une méthode POST pour traiter la soumission du formulaire de l'article modifié. 
+// Elle pointe vers la méthode updateArticle du contrôleur ArticlesController.
+Route::post('/updateArticle/traitement',[ArticlesController::class,'updateArticle']);
+
+// La route 6:définit une méthode GET pour traiter la soumission du formulaire de l'article à supprimer. 
+// Elle pointe vers la méthode destroyArticle du contrôleur ArticlesController.
+Route::get('/deleteArticle/{id}',[ArticlesController::class,'destroyArticle']);
+
+// La route 7:.
+// Elle pointe vers la méthode store du contrôleur ClientsController.
+//  Route::get('/displayArticles',[ArticlesController::class, 'pictureStore']);
