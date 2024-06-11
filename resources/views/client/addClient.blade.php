@@ -14,9 +14,6 @@
           <hr>
             <h1 class="mt-5">Ajouter un client</h1>
           <hr>
-            @if(session('status'))
-              <div class="alert alert-success">{{session('status')}} </div>
-            @endif
             <form class="row g-3" action="/addClients/traitement" method="POST">
               @csrf
               <div class="col-md-6">
@@ -30,11 +27,10 @@
               <div class="col-md-6">
                 <label for="telephone" class="form-label">Téléphone</label>
                 <input type="text" class="form-control" id="telephone" name="telephone">
+                
               </div>
               <div class="col-12"> 
-                <button type="submit" class="btn btn-primary">Ajouter</button>
-              </div>
-              <div class="col-12"> 
+                <a href="/client" type="submit" class="btn btn-primary">Ajouter</a>
                 <a href="/client" type="submit" class="btn btn-danger">Annuler</a>
               </div>
             </form>
